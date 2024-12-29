@@ -1,0 +1,28 @@
+To solve this issue, we need to understand the concept of CSS specificity.  The more specific selector will always override a less specific selector, regardless of the order they appear in the stylesheet.
+
+In the provided example, the selector `p.special` has a higher specificity than `.container p.special`, resulting in the `yellow` background color overriding the `lightgreen` one.
+
+To fix this, we can either:
+
+1. **Increase the specificity of the desired rule:**  For example, adding an ID to the container element would solve it. 
+
+2. **Modify the conflicting selector:** If possible, modify the conflicting selector to have lower specificity or apply appropriate styles to the desired selector. 
+
+The following CSS demonstrates a way to fix the issue by modifying the selector specificity:
+
+```css
+#container {
+  background-color: lightblue;
+}
+
+#container p {
+  background-color: lightcoral;
+}
+
+#container p.special {
+  background-color: lightgreen;
+}
+
+```
+
+By applying an ID selector, we make it more specific. This ensures that the styles are applied correctly, and the cascade order is followed appropriately.
